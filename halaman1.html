@@ -16,7 +16,7 @@
 			<div class="logo-container"><h1 class="logo">GDSC TV</h1></div>
 			<div class="menu-container">
 				<div class="ul menu-list">
-					<li class="menu-list-item"><a class="home" href="halaman2.html"> Search Movie</a></li>
+					<li class="menu-list-item"><a class="home" href="#bg2"> Search Movie</a></li>
 					<li class="menu-list-item"><a class="home" href="#bg1"> Top 20 Movies</a></li>
 				</div>
 			</div>
@@ -43,16 +43,6 @@
 			</div>
 			<div class="movie-list-container">
 				<h1 class="movie-list-title">Top 20 Movies</h1>
-				<div class="search-wrapper">
-          		<input
-            		id="search-field"
-            		class="search-field"
-            		type="text"
-            		name="movie_name"
-            		placeholder="Search for a movie....."
-         				 />
-          			<button id="submit-btn" class="submit-btn" type="submit" >Find Movie</button>
-      		</div>  
 				<div class="movie-list-wrapper">
 					<div class="movie-list">
 						<div class="movie-list-item">
@@ -138,7 +128,30 @@
 					</div>
 					<i class="fas fa-chevron-right arrow"></i>
 				</div>
-			</div>
+				</div>
+				<div id="bg2" class="search-wrapper">
+          			<input
+            			id="search-field"
+           				class="search-field"
+           				type="text"
+            			name="movie_name"
+            			placeholder="Search for a movie....."
+          			/>
+          			<button id="submit-btn" class="submit-btn" type="submit" >Find Movie</button>
+      			</div>
+				<main class="wrappper">
+          			<section id="movies" class="movies">
+           				<h2 id="bg2">Movie results:</h2>
+            			<div class="cards"></div>
+          			</section>
+          				<section class="nomination-wrapper">
+            			<h2>Wishlish</h2>
+            	  		<div class="nominations">
+            	  		</div>
+          			</section>
+      			</main>
+     			<footer></footer>
 				<script src="app.js"></script>
+				<script src="index.js"></script>
 			</body>
 			</html>

@@ -2,12 +2,10 @@
 document.querySelector("#submit-btn").addEventListener("click", () => {
     document.querySelector(".cards").innerHTML = "";
 
-    // Add movie in the search box
     let movie = document.querySelector("#search-field").value.toLowerCase();
 
     const apiKey = '7cb15079'
 
-    // check if input is empty
     if (movie == "") {
         alert("Please type a movie title");
       }else{
@@ -21,14 +19,12 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
                   alert(data.Error);
                   document.querySelector("#search-field").value = "";
                 }
-                // get the values in the json data
                 searchOutput.forEach(result =>{
                     let title = result.Title;
                     let poster = result.Poster;
                     let year = result.Year;
                     let type = result.Type;
 
-                  // Elements
                     let cards = document.querySelector(".cards")
                     let normDivs = document.querySelector(".nominations")
                     let normDiv = document.createElement("div")
@@ -48,10 +44,8 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
                     let genreSpan = document.createElement("span")
                     let nomBtn = document.createElement("button");
 
-                    // check if search matches the type/series of the movie
                     if (type == "movie" || type == "series") {
 
-                      // append elements to child nodes
                         cards.appendChild(cardDiv)
                         cardDiv.appendChild(movieImageBox)
                         movieImageBox.appendChild(movieImage)
@@ -69,7 +63,6 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
                         movieDescription.appendChild(topicGenre)
                         topicGenre.appendChild(genreSpan)
 
-                        // Added classes to the elements
                         cards.classList.add( "cards")
                         cardDiv.classList.add("card");
                         normDivs.classList.add("nominations")
@@ -80,9 +73,7 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
                         nomBtn.classList.add("nom-btn")
                         movieTitle.classList.add( "card-title")
 
-                        // add movie image to the image element
                         movieImage.innerHTML = `<img alt='movie-image'src=${poster}/>`
-                        // add title and year
                         movieDescription.innerHTML = `<h2>${title}, ${year}</h2>`
                         nomBtn.innerText = "Nominate"
                       }
@@ -94,7 +85,6 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
                       let deleteBtn = document.createElement("button")
                       let nomName = document.createElement("p")
 
-                      // nominate a move function
                       function nominate(){
                         normDivs.appendChild(normDiv)
                         normDiv.appendChild(nomName)
@@ -106,7 +96,6 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
 
                         nomBtn.style.backgroundColor="grey"
 
-                        // save nominations
                         localStorage.setItem(`${title}`, title)
                         
                         let normlist = normDivs.querySelectorAll(".nomination")
@@ -118,16 +107,13 @@ document.querySelector("#submit-btn").addEventListener("click", () => {
                         }
                       }
 
-                      // delete nomination function
                       function deleteNomination(){
                         deleteBtn.parentNode.remove(this.parentNode);
                         nomBtn.style.backgroundColor="#1677b5" 
                       }
 
-                      // Add new movie to the nomination list
                       nomBtn.addEventListener("click", nominate)
 
-                      // delete nominated movie
                       deleteBtn.addEventListener("click", deleteNomination)
 
                     
